@@ -27,16 +27,6 @@ default %>%
   ylab("Income")
 
 
-default %>%
-  mutate(prob = ifelse(default == "Yes", 1, 0)) %>%
-  ggplot(aes(balance, prob)) +
-  geom_point(alpha = .15) +
-  geom_smooth(method = "lm") +
-  ggtitle("Linear regression model fit") +
-  xlab("Balance") +
-  ylab("Probability of Default") +
-  theme_bw()
-
 set.seed(161)
 sample <- sample(c(TRUE, FALSE), nrow(default), replace = T, prob = c(0.8,0.2))
 train <- default[sample, ]
