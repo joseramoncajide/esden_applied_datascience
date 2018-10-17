@@ -11,9 +11,9 @@ mydrop <- plumber::do_provision(name = droplet_name, region='ams3')
 
 plumber::do_deploy_api(droplet = mydrop,path = 'model',port = 8001 ,localPath = ".", forward = T)
 
-# curl -X GET "http://178.128.240.218/model/predict?student=Yes&income=1500&balance=40" -H  "accept: application/json"
+# curl -X GET "http://178.128.240.218/model/predict?student=Yes&income=1500&balance=40000" -H  "accept: application/json"
 
-command <- paste0('curl "http://', mydrop_ip, '/model/predict?student=Yes&balance=1500&income=40"')
+command <- paste0('curl "http://', mydrop_ip, '/model/predict?student=Yes&balance=1500&income=40000"')
 print(command)
 system(command)
 

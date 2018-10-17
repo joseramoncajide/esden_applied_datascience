@@ -18,6 +18,8 @@ library(ISLR)
 # Load data 
 (default <- as_tibble(ISLR::Default))
 
+summary(default)
+
 
 default %>% 
   ggplot(aes(x=balance, y=income, color=default, shape=default)) + geom_point() +
@@ -63,7 +65,7 @@ tidy(model2)
 
 # https://topepo.github.io/caret/measuring-performance.html#lift-curves
 
-new.df <- data.frame(balance = 1500, income = 40, student = c("Yes", "No"))
+(new.df <- data.frame(balance = 1500, income = 40000, student = c("Yes", "No")))
 predict(model2, new.df, type = "response")
 
 
